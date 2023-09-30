@@ -65,51 +65,6 @@
         "controlled"
       ],
       "correctIndex": 1
-    },
-    {
-      "prompt": "as",
-      "answer1": "as",
-      "answer2": "a",
-      "answer3": "a",
-      "answer4": "",
-      "correctIndex": 0,
-      "id": 7
-    },
-    {
-      "prompt": "ss",
-      "answer1": "ss",
-      "answer2": "ss",
-      "answer3": "sss",
-      "answer4": "ssss",
-      "correctIndex": 0,
-      "id": 8
-    },
-    {
-      "prompt": "ss",
-      "answer1": "ss",
-      "answer2": "ss",
-      "answer3": "sss",
-      "answer4": "ssss",
-      "correctIndex": 0,
-      "id": 9
-    },
-    {
-      "prompt": "ss",
-      "answer1": "ss",
-      "answer2": "ss",
-      "answer3": "sss",
-      "answer4": "ssss",
-      "correctIndex": 0,
-      "id": 10
-    },
-    {
-      "prompt": "s",
-      "answer1": "x",
-      "answer2": "",
-      "answer3": "",
-      "answer4": "",
-      "correctIndex": 0,
-      "id": 11
     }
   ]
 }

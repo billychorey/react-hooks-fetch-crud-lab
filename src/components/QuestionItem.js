@@ -4,11 +4,13 @@ function QuestionItem({ question, onDeleteQuestion }) {
   const { id, prompt, answers, correctIndex } = question;
   const [selectedCorrectIndex, setSelectedCorrectIndex] = useState(correctIndex);
 
-  const options = answers.map((answer, index) => (
-    <option key={index} value={index}>
-      {answer}
-    </option>
-  ));
+  const options = answers && Array.isArray(answers)
+  ? answers.map((answer, index) => (
+      <option key={index} value={index}>
+        {answer}
+      </option>
+    ))
+  : [];
 
   useEffect(() => {
     // Update the correct index on the server when it changes
