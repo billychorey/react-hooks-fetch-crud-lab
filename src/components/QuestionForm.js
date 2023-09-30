@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function QuestionForm(props) {
+function QuestionForm({ onAddQuestion, questions, setQuestions}) {
+
   const [formData, setFormData] = useState({
     prompt: "",
     answer1: "",
@@ -17,11 +18,38 @@ function QuestionForm(props) {
     });
   }
 
+  // const handleAnswerChange = (index, event) => {
+  //   const updatedAnswers = [...formData.answers];
+  //   updatedAnswers[index] = event.target.value;
+  //   setFormData({ ...formData, answers: updatedAnswers });
+  // };
+
   function handleSubmit(event) {
     event.preventDefault();
     console.log(formData);
-  }
+   
+    fetch(`http://localhost:4000/questions/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // new object 
+        prompt: formData.prompt,
+        answers: [formData.answer1, formData.answer2, formData.answer3, formData.answer4],
+        correctIndex: formData.correctIndex
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // updating and adding questions list 
+        setQuestions([...questions,data]);
+      })
+      .catch((error) => console.error("Error updating correct index:", error));
+    };
 
+  // (event) => handleAnswerChange(index, event)
+  
   return (
     <section>
       <h1>New Question</h1>
@@ -68,7 +96,7 @@ function QuestionForm(props) {
             type="text"
             name="answer4"
             value={formData.answer4}
-            onChange={handleChange}
+            onChange={(handleChange)}
           />
         </label>
         <label>
